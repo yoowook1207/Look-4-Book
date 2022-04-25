@@ -13,13 +13,7 @@ const resolvers = {
             return userData;
           }
           throw new AuthenticationError('Not logged in')
-        },
-        user: async (parent, { username }) => {
-            return User.findOne({ username })
-              .select('-__v -password')
-              .populate('savedBooks')
-        },
-
+        }
     },
     Mutation :{
         addUser: async (parent, args) => {
